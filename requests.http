@@ -1,0 +1,148 @@
+### GET All Users
+GET http://localhost:5071/users
+Authorization: valid-token
+
+### GET User by ID
+GET http://localhost:5071/users/1
+
+### GET User by non-existent ID
+GET http://localhost:5071/users/999
+
+### POST User - Valid Data
+POST http://localhost:5071/users
+Content-Type: application/json
+
+{
+    "Name": "Joe",
+    "Email": "joe@email.com",
+    "Age": 32
+}
+
+### POST User - Invalid Data (Missing Name)
+POST http://localhost:5071/users
+Content-Type: application/json
+
+{
+    "Name": "",
+    "Email": "joe@email.com",
+    "Age": 32
+}
+
+### POST User - Invalid Data (Missing Email)
+POST http://localhost:5071/users
+Content-Type: application/json
+
+{
+    "Name": "Joe",
+    "Email": "",
+    "Age": 32
+}
+
+### POST User - Invalid Data (Invalid Email 1)
+POST http://localhost:5071/users
+Content-Type: application/json
+
+{
+    "Name": "Joe",
+    "Email": "joeemail.com",
+    "Age": 32
+}
+
+### POST User - Invalid Data (Invalid Email 2)
+POST http://localhost:5071/users
+Content-Type: application/json
+
+{
+    "Name": "Joe",
+    "Email": "joe@emailcom",
+    "Age": 32
+}
+
+### POST User - Invalid Data (Negative Age)
+POST http://localhost:5071/users
+Content-Type: application/json
+
+{
+    "Name": "Joe",
+    "Email": "joe@email.com",
+    "Age": -5
+}
+
+### PUT User - Valid Data
+PUT http://localhost:5071/users/1
+Content-Type: application/json
+
+{
+    "Name": "Larry",
+    "Email": "larry@email.com",
+    "Age": 55
+}
+
+### PUT User - Invalid Data (Missing Name)
+PUT http://localhost:5071/users/1
+Content-Type: application/json
+
+{
+    "Name": "",
+    "Email": "larry@email.com",
+    "Age": 55
+}
+
+### PUT User - Invalid Data (Missing Email)
+PUT http://localhost:5071/users/1
+Content-Type: application/json
+
+{
+    "Name": "Larry",
+    "Email": "",
+    "Age": 55
+}
+
+### PUT User - Invalid Data (Invalid Email 1)
+PUT http://localhost:5071/users/1
+Content-Type: application/json
+
+{
+    "Name": "Larry",
+    "Email": "larryemail.com",
+    "Age": 55
+}
+
+### PUT User - Invalid Data (Invalid Email 2)
+PUT http://localhost:5071/users/1
+Content-Type: application/json
+
+{
+    "Name": "Larry",
+    "Email": "larry@emailcom",
+    "Age": 55
+}
+
+### PUT User - Invalid Data (Negative Age)
+PUT http://localhost:5071/users/1
+Content-Type: application/json
+
+{
+    "Name": "Larry",
+    "Email": "larry@email.com",
+    "Age": -10
+}
+
+### PUT User - Non-existent ID
+PUT http://localhost:5071/users/999
+Content-Type: application/json
+
+{
+    "Name": "Larry",
+    "Email": "larry@email.com",
+    "Age": 55
+}
+
+### DELETE User
+DELETE http://localhost:5071/users/1
+
+### DELETE User - Non-existent ID
+DELETE http://localhost:5071/users/999
+
+### Throws an error
+GET http://localhost:5071/error
